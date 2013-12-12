@@ -1,0 +1,16 @@
+﻿@model DrinksLib.Business.BDefined_Instruction
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("DefinedInstruction_Delete", "Home", FormMethod.Post, 
+    new {
+        @id = "DefinedInstructionDelete_" + Model.Defined_Instruction_ID,
+        @class = "DefinedInstructionDelete PartialUpdateForm"
+    })) { 
+    @Model.Defined_Instruction_ID_Rules.Delete.HtmlInput(Model.Defined_Instruction_ID)
+    
+    <input type="submit" value="Delete Defined Instruction" />
+}
+

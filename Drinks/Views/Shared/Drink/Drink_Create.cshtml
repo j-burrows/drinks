@@ -1,0 +1,18 @@
+﻿@model DrinksLib.Business.BDrink
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Drink_Create", "Home", FormMethod.Post, 
+    new { 
+        @id = "DrinkCreate_" + Model.Drink_ID,
+        @class = "DrinkCreate PartialUpdateForm"
+    })) { 
+    @Model.Drink_ID_Rules.Create.HtmlInput(Model.Drink_ID)
+    @Model.username_Rules.Create.HtmlInput(Model.username)
+    @Model.Name_Rules.Create.HtmlInput(Model.Name)
+    @Model.Definition_Rules.Create.HtmlInput(Model.Definition)
+    
+    <input type="submit" value="Create Drink" />
+}

@@ -1,0 +1,8 @@
+﻿@model DrinksLib.Business.BInstruction
+
+@{Model.Format();}
+
+<section id="InstructionView_@Model.Instruction_ID" class="InstructionView">
+    @Model.Description for
+    @Model.Time seconds
+</section>

@@ -1,0 +1,16 @@
+﻿@model DrinksLib.Business.BDefined_Instruction
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("DefinedInstruction_Create", "Home", FormMethod.Post, 
+    new {
+        @id = "DefinedInstructionCreate_" + Model.Defined_Instruction_ID,
+        @class = "DefinedInstructionCreate PartialUpdateForm"
+    })) { 
+    @Model.Defined_Instruction_ID_Rules.Create.HtmlInput(Model.Defined_Instruction_ID)
+    @Model.Description_Rules.Create.HtmlInput(Model.Description)
+    
+    <input type="submit" value="Create Defined Instruction" />
+}

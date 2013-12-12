@@ -1,0 +1,19 @@
+﻿@model DrinksLib.Business.BIngredient
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Ingredient_Update", "Home", FormMethod.Post, 
+    new { 
+        @id = "IngredientUpdate_" + Model.Ingredient_ID,
+        @class = "IngredientUpdate PartialUpdateForm"
+    })) { 
+    @Model.Ingredient_ID_Rules.Update.HtmlInput(Model.Ingredient_ID)
+    @Model.Drink_ID_Rules.Update.HtmlInput(Model.Drink_ID)
+    @Model.Long_Name_Rules.Update.HtmlInput(Model.Long_Name)
+    @Model.Short_Name_Rules.Update.HtmlInput(Model.Short_Name)
+    @Model.Amount_Rules.Update.HtmlInput(Model.Amount)
+    
+    <input type="submit" value="Update Ingredient" />
+}

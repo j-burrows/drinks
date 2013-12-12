@@ -1,0 +1,18 @@
+﻿@model DrinksLib.Business.BRating
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Rating_Create", "Home", FormMethod.Post, 
+    new { 
+        @id = "RatingCreate_" + Model.Rating_ID,
+        @class = "RatingCreate PartialUpdateForm"
+    })) { 
+    @Model.Rating_ID_Rules.Create.HtmlInput(Model.Rating_ID)
+    @Model.Drink_ID_Rules.Create.HtmlInput(Model.Drink_ID)
+    @Model.Score_Rules.Create.HtmlInput(Model.Score)
+    @Model.Reasons_Rules.Create.HtmlInput(Model.Reasons)
+    
+    <input type="submit" value="Create Rating" />
+}

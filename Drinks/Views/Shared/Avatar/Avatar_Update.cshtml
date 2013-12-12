@@ -1,0 +1,17 @@
+﻿@model DrinksLib.Business.BAvatar
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Avatar_Update", "Home", FormMethod.Post, 
+    new {
+        @id = "AvatarUpdate_" + Model.Avatar_ID,
+        @class = "AvatarUpdate PartialUpdateForm"
+    })) { 
+    @Model.Avatar_ID_Rules.Update.HtmlInput(Model.Avatar_ID)
+    @Model.Title_Rules.Update.HtmlInput(Model.Title)
+    @Model.Url_Rules.Update.HtmlInput(Model.Url)
+    
+    <input type="submit" value="Update Avatar" />
+}

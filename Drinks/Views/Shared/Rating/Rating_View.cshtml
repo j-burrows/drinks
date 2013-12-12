@@ -1,0 +1,11 @@
+﻿@model DrinksLib.Business.BRating
+
+@{Model.Format();}
+
+<section id="RatingView_@Model.Rating_ID" class="RatingView">
+    Score: @Model.Score
+    <br />
+    Reasons:
+    <br />
+    @Model.Reasons
+</section>

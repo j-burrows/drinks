@@ -1,0 +1,16 @@
+﻿@model DrinksLib.Business.BDrink
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Drink_Delete", "Home", FormMethod.Post, 
+    new { 
+        @id = "DrinkDelete_" + Model.Drink_ID,
+        @class = "DrinkDelete PartialUpdateForm"
+    })) { 
+    @Model.Drink_ID_Rules.Delete.HtmlInput(Model.Drink_ID)
+    @Model.username_Rules.Delete.HtmlInput(Model.username)
+    
+    <input type="submit" value="Delete Drink" />
+}

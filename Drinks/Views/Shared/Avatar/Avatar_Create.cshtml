@@ -1,0 +1,16 @@
+﻿@model DrinksLib.Business.BAvatar
+@using Repository.Business.Protocols
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Avatar_Create", "Home", FormMethod.Post, 
+    new {
+        @id = "AvatarCreate_" + Model.Avatar_ID,
+        @class = "AvatarCreate PartialUpdateForm"
+    })) { 
+    @Model.Avatar_ID_Rules.Create.HtmlInput(Model.Avatar_ID)
+    @Model.Title_Rules.Create.HtmlInput(Model.Title)
+    @Model.Url_Rules.Create.HtmlInput(Model.Url)
+    
+    <input type="submit" value="Create Avatar" />
+}

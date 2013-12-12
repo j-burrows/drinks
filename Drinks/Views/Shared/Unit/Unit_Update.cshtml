@@ -1,0 +1,23 @@
+﻿@model DrinksLib.Business.BUnit
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Unit_Update", "Home", FormMethod.Post, 
+    new { 
+        @id = "UnitUpdate_" + Model.Unit_ID,
+        @class = "UnitUpdate PartialUpdateForm"
+    })) { 
+    @Model.ValidationErrors["Data"].ValidationSection()
+    
+    <input type="hidden" value="@Model.Unit_ID" name="Unit_ID"/>
+    @Model.ValidationErrors["Unit_ID"].ValidationSection()
+    
+    <input type="text" value="@Model.Long_Name" name="Long_Name" placeholder="Long Name" maxlength="16"/>
+    @Model.ValidationErrors["Long_Name"].ValidationSection()
+    
+    <input type="text" value="@Model.Short_Name" name="Short_Name" placeholder="Short Name" maxlength="4"/>
+    @Model.ValidationErrors["Short_Name"].ValidationSection()
+    
+    <input type="submit" value="Update Unit" />
+}

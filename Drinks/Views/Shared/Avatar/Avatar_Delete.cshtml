@@ -1,0 +1,15 @@
+﻿@model DrinksLib.Business.BAvatar
+@using Repository.Business.Protocols
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Avatar_Delete", "Home", FormMethod.Post, 
+    new {
+        @id = "AvatarDelete_" + Model.Avatar_ID,
+        @class = "AvatarDelete PartialUpdateForm"
+    })) { 
+    @Model.Avatar_ID_Rules.Delete.HtmlInput(Model.Avatar_ID)
+    
+    <input type="submit" value="Delete Avatar" />
+}

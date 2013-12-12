@@ -1,0 +1,17 @@
+﻿@model DrinksLib.Business.BUnit
+@using Drinks.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Unit_Delete", "Home", FormMethod.Post, 
+    new { 
+        @id = "UnitDelete_" + Model.Unit_ID,
+        @class = "UnitDelete PartialUpdateForm"
+    })) { 
+    @Model.ValidationErrors["Data"].ValidationSection()
+    
+    <input type="hidden" value="@Model.Unit_ID" name="Unit_ID"/>
+    @Model.ValidationErrors["Unit_ID"].ValidationSection()
+    
+    <input type="submit" value="Delete Unit" />
+}
